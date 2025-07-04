@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-export default function GameItem({ game }) {
+export default function GameItem({ item }) {
   return (
     <View style={styles.container}>
-      <Text>{game.titre}</Text>
-      <Text>Genre : {game.genre}</Text>
-      <Text>Prix : {game.prix}€</Text>
+      <Text>{item.titre}</Text>
+      <Text>Genre : {item.genre}</Text>
+      <Text>Prix : {item.prix}€</Text>
     </View>
   );
 }
@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     padding: 10,
     backgroundColor: "#f0f0f0",
-    borderRadius: 5,
+    borderRadius: 10,
+    alignItems: "center",
   },
 });

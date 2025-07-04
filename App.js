@@ -1,22 +1,29 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import AfficheG from "./components/AfficheG";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <AfficheG />
-      <StatusBar style="auto" />
-    </View>
+    <ImageBackground
+      source={require("./assets/background.png")}
+      style={styles.bg}
+    >
+      <View style={styles.container}>
+        <AfficheG />
+        <StatusBar style="auto" />
+      </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
+    justifyContent: "center",
+  },
+  bg: {
+    flex: 1,
     justifyContent: "center",
   },
 });

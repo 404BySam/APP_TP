@@ -1,7 +1,16 @@
-import { View, Text, FlatList, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  Modal,
+  Pressable,
+  TouchableOpacity,
+} from "react-native";
 import { useState } from "react";
 import React from "react";
 import GameItem from "./GameItem";
+import AddGameButton from "./AddGameButton";
 
 export default function AfficheG() {
   const [games, setGames] = useState([
@@ -96,21 +105,47 @@ export default function AfficheG() {
       genre: "Action-Aventure",
     },
   ]);
+
+  const addGame = (newGame) => {
+    setGames([...games, newGame]);
+  };
+
   return (
-    <View>
-      <Text>Ma Liste de Jeux</Text>
+    <View style={styles.container}>
+      <Text style={styles.titleList}>Ma Liste de Jeux</Text>
       <FlatList
         data={games}
         keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => <GameItem game={item} />}
+        renderItem={({ item }) => <GameItem item={item} />}
+        numColumns={2}
+        columnWrapperStyle={styles.row}
       />
+      <AddGameButton onAdd={addGame} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  AfficheG: {
-    marginVertical: 5,
-    backgroundColor: "#f0f0f0",
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingTop: 60,
+    paddingHorizontal: 16,
+  },
+  titleList: {
+    fontSize: 24,
+    color: "white",
+  },
+  boutonModifier: {
+    marginTop: 20,
+    backgroundColor: "#0077cc",
+    borderRadius: 7,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+  },
+  row: {
+    justifyContent: "space-between",
+    marginBottom: 16,
   },
 });
