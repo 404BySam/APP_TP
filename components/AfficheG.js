@@ -1,0 +1,116 @@
+import { View, Text, FlatList, StyleSheet } from "react-native";
+import { useState } from "react";
+import React from "react";
+import GameItem from "./GameItem";
+
+export default function AfficheG() {
+  const [games, setGames] = useState([
+    {
+      id: 1,
+      titre: "The Last of Us Part II",
+      prix: 25,
+      genre: "Action-Aventure",
+    },
+    {
+      id: 2,
+      titre: "FIFA 23",
+      prix: 20,
+      genre: "Sport",
+    },
+    {
+      id: 3,
+      titre: "Call of Duty: Modern Warfare II",
+      prix: 30,
+      genre: "FPS",
+    },
+    {
+      id: 4,
+      titre: "Horizon Forbidden West",
+      prix: 28,
+      genre: "Action-RPG",
+    },
+    {
+      id: 5,
+      titre: "Mario Kart 8 Deluxe",
+      prix: 35,
+      genre: "Course",
+    },
+    {
+      id: 6,
+      titre: "Animal Crossing: New Horizons",
+      prix: 22,
+      genre: "Simulation",
+    },
+    {
+      id: 7,
+      titre: "Elden Ring",
+      prix: 32,
+      genre: "Action-RPG",
+    },
+    {
+      id: 8,
+      titre: "God of War Ragnarök",
+      prix: 40,
+      genre: "Action-Aventure",
+    },
+    {
+      id: 9,
+      titre: "Gran Turismo 7",
+      prix: 27,
+      genre: "Course",
+    },
+    {
+      id: 10,
+      titre: "Minecraft",
+      prix: 18,
+      genre: "Sandbox",
+    },
+    {
+      id: 11,
+      titre: "Fortnite",
+      prix: 0,
+      genre: "Battle Royale",
+    },
+    {
+      id: 12,
+      titre: "Red Dead Redemption 2",
+      prix: 23,
+      genre: "Action-Aventure",
+    },
+    {
+      id: 13,
+      titre: "Cyberpunk 2077",
+      prix: 15,
+      genre: "RPG",
+    },
+    {
+      id: 14,
+      titre: "Resident Evil Village",
+      prix: 19,
+      genre: "Horreur",
+    },
+    {
+      id: 15,
+      titre: "Assassin's Creed Valhalla",
+      prix: 21,
+      genre: "Action-Aventure",
+    },
+  ]);
+  return (
+    <View>
+      <Text>Ma Liste de Jeux</Text>
+      <FlatList
+        data={games}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => <GameItem game={item} />}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  AfficheG: {
+    marginVertical: 5,
+    backgroundColor: "#f0f0f0",
+  },
+});
